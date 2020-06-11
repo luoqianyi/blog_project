@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{{ SITE_NAME }}</title>
+		<link rel="stylesheet" href="/static/css/博客首页(坤).css">
+		<link rel="stylesheet" href="/static/css/article.css">
+        <link rel="shortcut icon" href="/static/image/moleskine Umband.png" />
+        {% block css_custom %}{% endblock %}
+		<script type="text/javascript" src="/static/js/base.js"></script>
+		<script type="text/javascript" src="/static/js/DOM加载.js"></script>
+		<script type="text/javascript" src="/static/js/base_drag.js"></script>
+		<script type="text/javascript" src="/static/js/bolg(坤).js"></script>
+        {% block js_custom %}{% endblock %}
+		</head>
+	<body>
+		<script src="http://open.sojson.com/common/js/canvas-nest.min.js" count="200" zindex="-2" opacity="0.8" color="0,0,0"
+		 type="text/javascript">
+		</script>
+		<!-- <div id="snow"></div> -->
+		<div id="screen"></div>
+		<div id="first" class="A">
+			<img src="/static/image/The Living Seas.png" id="a" />
+			<span id="b"><em>{{ SITE_NAME }}</em></span>
+			<span id="c"><em>—————{{ SITE_DESC }}</em></span>
+			<div class="member">
+				个人中心
+				<ul id="ul1">
+					<li><a href="{% url 'failure' %}">设 置</a></li>
+					<li><a href="{% url 'about' %}">帮 助</a></li>
+					<li><a href="{% url 'logout' %}">退 出</a></li>
+				</ul>
+			</div>
+
+            {% if user.is_authenticated %}
+                   <div class="login" style="width: 200px">你好呀，{{ user.username }}！</div>
+            {% else %}
+                <div class="reg" style="right: 200px;"><a href="{% url 'reg' %}">注 册</a></div>
+                  <div class="login"><a href="{% url 'login' %}">登 录</a></div>
+            {% endif %}
+
+		</div>
+{#		<div id="reg">#}
+{#			<h2 id="H1"><img src="/static/image/x_close.ico" alt="" class="close" />网 站 注 册</h2>#}
+{#			<form name="reg">#}
+{#				<dl>#}
+{#					<dd>用 户 名：<input type="text" name="user" class="text" style="height: 25px;width: 200px;" />#}
+{#						<span class="info info_user">2~20位，由字母、数字和下划线组成！</span>#}
+{#						<span class="error error_user">输入不合法，请重新输入！</span>#}
+{#						<span class="succeed succeed_user">合法</span>#}
+{#					</dd>#}
+{#					<dd>密&nbsp &nbsp 码：<input type="password" name="pass" class="text2" style="height: 25px;width: 200px;" />#}
+{#						<span class="info_pass">6-20位字符(字母、数字、符号),区分大小写</span>#}
+{#						<span class="q1"><span style="color: red;">弱：</span>试试字母、数字和标点混合</span>#}
+{#						<span class="q2"><span style="color: #0000FF;">中：</span>试试字母、数字和标点混合</span>#}
+{#						<span class="q3"><span style="color: green;">强：</span>请牢记您的密码!</span>#}
+{#						<!-- <sapn class="q1" style="font-size: 12px;"><span style="color: red;">弱:</span>试试字母、数字和标点混合</span>#}
+{#					<span class="q2"><span style="color: blue;">中:</span>试试字母、数字和标点混合</span>#}
+{#					<span class="q3"><span style="color: green;">强:</span>请牢记您的密码</span> -->#}
+{#						<span class="error_pass">输入不合法，请重新输入！</span>#}
+{#					</dd>#}
+{#					<dd>确认密码：<input type="password" name="notpass" class="txet" style="width: 200px;height: 25px;" />#}
+{#						<span class="info_notpass">请再一次输入密码！</span>#}
+{#						<span class="error_notpass">密码不一致，请重新输入！</span>#}
+{#						<span class="succeed_notpass">合法</span>#}
+{#					</dd>#}
+{#					<dd><span style="vertical-align: -2px;font-size: 16px;">提&nbsp &nbsp 问：</span><select name="ques">#}
+{#							<option value="0"> ---- 请选择 ----</option>#}
+{#							<option value="1">--您最喜欢吃的菜</option>#}
+{#							<option value="2">--您的梦想</option>#}
+{#							<option value="3">--您的出生地</option>#}
+{#							<option value="4">--你的生日</option>#}
+{#						</select>#}
+{#						<span class="error_ques">尚未选择提问，请选择！</span>#}
+{#					</dd>#}
+{#					<dd>回&nbsp &nbsp 答：<input type="text" name="ans" class="text" />#}
+{#						<span class="info_ans">请输入回答，2-32位！</span>#}
+{#						<span class="error_ans">回答不合法，请重新输入！</span>#}
+{#						<span class="succeed_ans">合法</span>#}
+{#					</dd>#}
+{#					<dd>电子邮件：<input type="text" name="email" class="text" />#}
+{#						<span class="info_email">请输入电子邮件！</span>#}
+{#						<span class="error_email">邮件格式错误，请重新输入！</span>#}
+{#						<span class="succeed_email">合法</span>#}
+{#					</dd>#}
+{#					<dd class="birthday"><span style="vertical-align: -2px;font-size: 16px;">生&nbsp &nbsp 日：</span><select name="year">#}
+{#							<option value="0">-年-</option>#}
+{#						</select>#}
+{#						<select name="month">#}
+{#							<option value="0">-月-</option>#}
+{#						</select>#}
+{#						<select name="day">#}
+{#							<option value="0">-日-</option>#}
+{#						</select>#}
+{#						<span class="error_birth">尚未全部选择，请选择！</span>#}
+{#					</dd>#}
+{#					<dd style="height:105px;"><span style="vertical-align:85px;font-size: 16px;">备&nbsp &nbsp 注:</span>#}
+{#						<textarea class="ps"></textarea>#}
+{#					</dd>#}
+{#					<dd style="display:block;padding:0 0 0 320px;" class="run">还能输入 <strong class="num1">200</strong>字</dd>#}
+{#					<dd style="display: none;" class="flow">已超过<strong class="num2"></strong>字，<span class="clear" style="font-size: 16px;color: red;">清尾</span></dd>#}
+{#					<dd style="padding:0 0 0 80px;"><input type="button" class="submit" id="but1" value="注 册" /></dd>#}
+{#				</dl>#}
+{#			</form>#}
+{#		</div>#}
+{#		<div id="login">#}
+{#			<h2 id="H1"><img src="/static/image/x_close.ico" alt="" class="close" />网 站 登 录</h2>#}
+{#			<div class="user">帐 号：<input type="text" name="user" class="text" /></div>#}
+{#			<div class="user">密 码：<input type="password" name="pass" class="text" /></div>#}
+{#			<div class="button"><input type="button" class="submit" value="登 录" /></div>#}
+{#			<div class="other">注册新账户|忘记密码？</div>#}
+{#		</div>#}
+		<div id="nav">
+			<!-- //专用于移入移出，免丢失 -->
+			<!-- <ul class="about">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul> -->
+			<ul class="black">
+				<li><a href="{% url 'index' %}">&nbsp首 页</a></li>
+                {% for catagory in catagory_list %}
+                    <li><a href="{% url 'failure' %}">{{ catagory.name }}</a></li>
+                {% endfor %}
+                <li><a href="{% url 'about' %}">关于我</a></li>
+			</ul>
+			<span></span>
+			<!-- <div class="nav_bg">
+				<ul class="white">
+					<li>&nbsp首 页</li>
+					<li>博文列表</li>
+					<li>我的相册</li>
+					<li>音乐地带</li>
+					<li>关于我</li>
+				</ul>
+			</div> -->
+		</div>
+		<div id="share">
+			<h2>分享到</h2>
+			<ul id="ul2">
+				<li><a href="###" class="a">一键分享</a></li>
+				<li><a href="http://service.weibo.com/share/share.php?url=" class="b">新浪微博</a></li>
+				<li><a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?" class="c">QQ空间</a></li>
+				<li><a href="https://tieba.baidu.com" class="d">百度贴吧</a></li>
+				<li><a href="###" class="e">腾讯朋友</a></li>
+				<li><a href="http://shuo.douban.com/!service/share?" class="f">豆瓣网</a></li>
+				<li><a href="http://share.v.t.qq.com/index.php?c=share&a=index" class="g">腾讯微博</a></li>
+				<li><a href="###" class="h">开心网</a></li>
+				<li><a href="###" class="i">搜狐微博</a></li>
+				<li><a href="http://connect.qq.com/widget/shareqq/index.html?url=" class="j">QQ好友</a></li>
+				<li><a href="###" class="k">更多</a></li>
+			</ul>
+			<div class="share_footer"><a href="http://share.baidu.com/code">百度分享</a><span id="s"></span></div>
+		</div>
+		<div id="main_left">
+			<div id="myself">
+				<h2 class="my_card">我的名片</h2>
+				<div id="p_many">
+					<p>网名：落•迁忆</p>
+					<p>职业：在校大学生</p>
+					<p>现居：河南省-信阳市</p>
+					<p>Email：3228077562@qq.com</p>
+					<p>个性签名：念念不忘，必有回响。</p>
+				</div>
+				<ul>
+					<li><a href="###" target="_blank" class="icon_email" title="邮箱联系我"><img src="/static/image/email.ico" style="width: 50px;height: 50px;" /></a></li>
+					<li><a href="{{ SELF_QQ }}" target="_blank" class="icon_qq" title="QQ联系我"><img src="/static/image/tencent_QQ.ico" style="width: 50px;height: 50px;" /></a></li>
+					<li><a href="#wechat" class="icon_wechat" title="微信联系我"><img src="/static/image/wechat.ico" style="width: 50px;height: 50px;" /></a></li>
+				</ul>
+			</div>
+			<div id='sidebar'>
+				<h2 class="hfirst" title="点击">优秀博客</h2>
+				<ul id="uf">
+					<li><a href="###">python数据类型分类介绍</a></li>
+					<li><a href="###">后端前端联调须知</a></li>
+					<li><a href="###">学习python必备基础知识</a></li>
+					<li><a href="###">AJAX请求真的不安全吗？</a></li>
+					<li><a href="###">Java编码规范整理汇总</a></li>
+				</ul>
+				<h2 class="hsecond" title="点击">赋比兴</h2>
+				<ul id="us">
+					<li><a href="###">千钟醉</a></li>
+					<li><a href="###">写给年少</a></li>
+					<li><a href="###">简单的喜欢</a></li>
+					<li><a href="###">我还是从前那个少年</a></li>
+					<li><a href="###">人间不值得</a></li>
+				</ul>
+				<h2 class="hthree" title="点击">码农翻身</h2>
+				<ul id="ut">
+					<li><a href="###">我是一个函数</a></li>
+					<li><a href="###">不要和Java"结婚"</a></li>
+					<li><a href="###">聊聊读源码的一点心得</a></li>
+					<li><a href="###">扫地僧回来了</a></li>
+					<li><a href="###">操作系统没啥用，不用学了</a></li>
+				</ul>
+			</div>
+		</div>
+        {% block main_right %}
+        {% endblock %}
+		<iframe frameborder="no" border="0" width=150 margin='0' height=86 src="//music.163.com/outchain/player?type=2&id=25706282&auto=0&height=66" class="music" ></iframe>
+		<div id="footer">
+			<img class="pic1" id="wechat" src="/static/image/微信二维码.png" title="微信二维码"/>
+			<img class="pic2" src="/static/image/qq二维码.jpg" title="qq二维码" />
+			<span>站点声明</span>
+			<p class="p1">1、不放弃，不抛弃，笑到最后才美丽；梦遥远，零距离，只要我们肯努力。</p>
+			<p class="p2">2、版权开放，共享信息；若有略同，万分荣幸！！！</p>
+			<a class="p3">3、Copyright © 2020 落迁忆</a>
+		</div>
+	</body>
+</html>

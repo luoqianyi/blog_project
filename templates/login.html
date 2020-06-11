@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" href="/static/css/log_and_reg.css">
+</head>
+<body>
+{% if forms.errors %}
+    <p>你的用户名或者密码错误，请再次尝试！</p>
+{% endif %}
+<form class="form-box front" method="post" action="{% url 'login' %}">
+   {% csrf_token %}
+    <h1>登录(登录后方可查看文章详情页面)</h1>
+    {{ form.as_p }}
+    <button class="btn-submit" type="submit">
+      登录
+    </button>
+<input type="hidden" name="next" value="{% url 'index' %}"/>
+
+    <p style="margin-top: 40px">如果你没有账户，请</p>
+    <p>点击这里<a id="signup" href="{% url 'reg' %}">注册</a></p>
+
+</form>
+</body>
+</html>

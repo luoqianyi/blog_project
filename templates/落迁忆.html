@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{{ SITE_NAME }}</title>
+		<link rel="stylesheet" href="/static/css/博客首页(坤).css">
+		<link rel="shortcut icon" href="/static/image/moleskine Umband.png" />
+		<script type="text/javascript" src="/static/js/base.js"></script>
+		<script type="text/javascript" src="/static/js/DOM加载.js"></script>
+		<script type="text/javascript" src="/static/js/base_drag.js"></script>
+		<script type="text/javascript" src="/static/js/bolg(坤).js"></script>
+		</head>
+	<body>
+		<script src="http://open.sojson.com/common/js/canvas-nest.min.js" count="200" zindex="-2" opacity="0.8" color="0,0,0"
+		 type="text/javascript">
+		</script>
+		<!-- <div id="snow"></div> -->
+		<div id="screen"></div>
+		<div id="first" class="A">
+			<img src="/static/image/The Living Seas.png" id="a" />
+			<span id="b"><em>{ SITE_NAME }}</em></span>
+			<span id="c"><em>————————{{ SITE_DESC }}</em></span>
+			<div class="member">
+				个人中心
+				<ul id="ul1">
+					<li><a href="###">设 置</a></li>
+					<li><a href="###">帮 助</a></li>
+					<li><a href="###">退 出</a></li>
+				</ul>
+			</div>
+			<div class="reg" style="right: 200px;">注 册</div>
+			<div class="login">登 录</div>
+		</div>
+		<div id="reg">
+			<h2 id="H1"><img src="/static/image/x_close.ico" alt="" class="close" />网 站 注 册</h2>
+			<form name="reg">
+				<dl>
+					<dd>用 户 名：<input type="text" name="user" class="text" style="height: 25px;width: 200px;" />
+						<span class="info info_user">2~20位，由字母、数字和下划线组成！</span>
+						<span class="error error_user">输入不合法，请重新输入！</span>
+						<span class="succeed succeed_user">合法</span>
+					</dd>
+					<dd>密&nbsp &nbsp 码：<input type="password" name="pass" class="text2" style="height: 25px;width: 200px;" />
+						<span class="info_pass">6-20位字符(字母、数字、符号),区分大小写</span>
+						<span class="q1"><span style="color: red;">弱：</span>试试字母、数字和标点混合</span>
+						<span class="q2"><span style="color: #0000FF;">中：</span>试试字母、数字和标点混合</span>
+						<span class="q3"><span style="color: green;">强：</span>请牢记您的密码!</span>
+						<!-- <sapn class="q1" style="font-size: 12px;"><span style="color: red;">弱:</span>试试字母、数字和标点混合</span>
+					<span class="q2"><span style="color: blue;">中:</span>试试字母、数字和标点混合</span>
+					<span class="q3"><span style="color: green;">强:</span>请牢记您的密码</span> -->
+						<span class="error_pass">输入不合法，请重新输入！</span>
+					</dd>
+					<dd>确认密码：<input type="password" name="notpass" class="txet" style="width: 200px;height: 25px;" />
+						<span class="info_notpass">请再一次输入密码！</span>
+						<span class="error_notpass">密码不一致，请重新输入！</span>
+						<span class="succeed_notpass">合法</span>
+					</dd>
+					<dd><span style="vertical-align: -2px;font-size: 16px;">提&nbsp &nbsp 问：</span><select name="ques">
+							<option value="0"> ---- 请选择 ----</option>
+							<option value="1">--您最喜欢吃的菜</option>
+							<option value="2">--您的梦想</option>
+							<option value="3">--您的出生地</option>
+							<option value="4">--你的生日</option>
+						</select>
+						<span class="error_ques">尚未选择提问，请选择！</span>
+					</dd>
+					<dd>回&nbsp &nbsp 答：<input type="text" name="ans" class="text" />
+						<span class="info_ans">请输入回答，2-32位！</span>
+						<span class="error_ans">回答不合法，请重新输入！</span>
+						<span class="succeed_ans">合法</span>
+					</dd>
+					<dd>电子邮件：<input type="text" name="email" class="text" />
+						<span class="info_email">请输入电子邮件！</span>
+						<span class="error_email">邮件格式错误，请重新输入！</span>
+						<span class="succeed_email">合法</span>
+					</dd>
+					<dd class="birthday"><span style="vertical-align: -2px;font-size: 16px;">生&nbsp &nbsp 日：</span><select name="year">
+							<option value="0">-年-</option>
+						</select>
+						<select name="month">
+							<option value="0">-月-</option>
+						</select>
+						<select name="day">
+							<option value="0">-日-</option>
+						</select>
+						<span class="error_birth">尚未全部选择，请选择！</span>
+					</dd>
+					<dd style="height:105px;"><span style="vertical-align:85px;font-size: 16px;">备&nbsp &nbsp 注:</span>
+						<textarea class="ps"></textarea>
+					</dd>
+					<dd style="display:block;padding:0 0 0 320px;" class="run">还能输入 <strong class="num1">200</strong>字</dd>
+					<dd style="display: none;" class="flow">已超过<strong class="num2"></strong>字，<span class="clear" style="font-size: 16px;color: red;">清尾</span></dd>
+					<dd style="padding:0 0 0 80px;"><input type="button" class="submit" id="but1" value="注 册" /></dd>
+				</dl>
+			</form>
+		</div>
+		<div id="login">
+			<h2 id="H1"><img src="/static/image/x_close.ico" alt="" class="close" />网 站 登 录</h2>
+			<div class="user">帐 号：<input type="text" name="user" class="text" /></div>
+			<div class="user">密 码：<input type="password" name="pass" class="text" /></div>
+			<div class="button"><input type="button" class="submit" value="登 录" /></div>
+			<div class="other">注册新账户|忘记密码？</div>
+		</div>
+		<div id="nav">
+			<!-- //专用于移入移出，免丢失 -->
+			<!-- <ul class="about">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul> -->
+			<ul class="black">
+				<li>&nbsp首 页</li>
+				<li>博文列表</li>
+				<li>我的相册</li>
+				<li>音乐地带</li>
+				<li>关于我</li>
+			</ul>
+			<span></span>
+			<!-- <div class="nav_bg">
+				<ul class="white">
+					<li>&nbsp首 页</li>
+					<li>博文列表</li>
+					<li>我的相册</li>
+					<li>音乐地带</li>
+					<li>关于我</li>
+				</ul>
+			</div> -->
+		</div>
+		<div id="share">
+			<h2>分享到</h2>
+			<ul id="ul2">
+				<li><a href="###" class="a">一键分享</a></li>
+				<li><a href="###" class="b">新浪微博</a></li>
+				<li><a href="###" class="c">QQ空间</a></li>
+				<li><a href="###" class="d">百度贴吧</a></li>
+				<li><a href="###" class="e">腾讯朋友</a></li>
+				<li><a href="###" class="f">豆瓣网</a></li>
+				<li><a href="###" class="g">腾讯微博</a></li>
+				<li><a href="###" class="h">开心网</a></li>
+				<li><a href="###" class="i">搜狐微博</a></li>
+				<li><a href="###" class="j">QQ好友</a></li>
+				<li><a href="###" class="k">更多</a></li>
+			</ul>
+			<div class="share_footer"><a href="###">百度分享</a><span id="s"></span></div>
+		</div>
+		<div id="main_left">
+			<div id="myself">
+				<h2 class="my_card">我的名片</h2>
+				<div id="p_many">
+					<p>网名：落•迁忆</p>
+					<p>职业：在校大学生</p>
+					<p>现居：河南省-信阳市</p>
+					<p>Email：3228077562@qq.com</p>
+					<p>个性签名：念念不忘，必有回响。</p>
+				</div>
+				<ul>
+					<li><a href="###" target="_blank" class="icon_email" title="邮箱联系我"><img src="/static/image/email.ico" style="width: 50px;height: 50px;" /></a></li>
+					<li><a href="{{ SELF_QQ }}" target="_blank" class="icon_qq" title="QQ联系我"><img src="/static/image/tencent_QQ.ico" style="width: 50px;height: 50px;" /></a></li>
+					<li><a href="###" target="_blank" class="icon_wechat" title="微信联系我"><img src="/static/image/wechat.ico" style="width: 50px;height: 50px;" /></a></li>
+				</ul>
+			</div>
+			<div id='sidebar'>
+				<h2 class="hfirst" title="点击">优秀博客</h2>
+				<ul id="uf">
+					<li><a href="###">python数据类型分类介绍</a></li>
+					<li><a href="###">后端前端联调须知</a></li>
+					<li><a href="###">学习python必备基础知识</a></li>
+					<li><a href="###">AJAX请求真的不安全吗？</a></li>
+					<li><a href="###">Java编码规范整理汇总</a></li>
+				</ul>
+				<h2 class="hsecond" title="点击">赋比兴</h2>
+				<ul id="us">
+					<li><a href="###">千钟醉</a></li>
+					<li><a href="###">写给年少</a></li>
+					<li><a href="###">简单的喜欢</a></li>
+					<li><a href="###">我还是从前那个少年</a></li>
+					<li><a href="###">人间不值得</a></li>
+				</ul>
+				<h2 class="hthree" title="点击">码农翻身</h2>
+				<ul id="ut">
+					<li><a href="###">我是一个函数</a></li>
+					<li><a href="###">不要和Java"结婚"</a></li>
+					<li><a href="###">聊聊读源码的一点心得</a></li>
+					<li><a href="###">扫地僧回来了</a></li>
+					<li><a href="###">操作系统没啥用，不用学了</a></li>
+				</ul>
+			</div>
+		</div>
+		<div id="main_right">
+			<div id="banner">
+				<img src="/static/image/1589282946205.jpeg" style="width: 800px;height: 400px;" alt="敢想敢做" class="img" />
+				<img src="/static/image/1589282636678.jpeg" style="width: 800px;height: 400px;" alt="努力" class="img" />
+				<img src="/static/image/IMG_20200512_193113.jpg" style="width: 800px;height: 400px;" alt="未来可期" class="img">
+				<ul>
+					<li class="li">❁</li>
+					<li class="li">❁</li>
+					<li class="li">❁</li>
+				</ul>
+				<span></span>
+				<strong></strong>
+			</div>
+			<div id="index">
+				<div id="tab_buttons">
+					<ul>
+						<li class="newscurrent">个人笔记</li>
+						<li>新知识💗</li>
+						<li>推荐工具</li>
+					</ul>
+				</div>
+				<div id="newstab">
+					<ul>
+						<li>
+							<a href="###">
+								<img src="/static/image/半透明.png" style="width: 200px;height: 100px;top: 10px;" />
+								<span class="span1">表白小程序-送给最爱的</span>
+							</a>
+						</li>
+						<li>
+							<a href="###">
+								<img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/d8f28e3799bdd5198719aeccbaa3d9e75ec6bd77ec5db3ee065ed38e314821a831fd753e38d7d18ccccdd576dc8c4f0b?pictype=scale&amp;from=30013&amp;version=3.3.3.3&amp;uin=1538933906&amp;fname=jdk%20Download.png&amp;size=750"
+								 style="width: 200px;height: 100px;bottom: 10px;">
+								<span class="span2">JAVA-001-JDK安装</span>
+							</a>
+						</li>
+					</ul>
+					<dl class="newslist">
+						<dd><span>1 </span>
+							<a href="/navigate/1/44" title="表白小程序-送给最爱的人">表白小程序-送给最爱的人</a>
+							<p>通过Swing来实现</p>
+						</dd>
+						<dd><span>2 </span>
+							<a href="/navigate/1/43" title="JAVA-001-JDK安装">JAVA-001-JDK安装</a>
+							<p>学习Java必看知识点</p>
+						</dd>
+						<dd><span>3 </span>
+							<a href="/navigate/1/41" title="贪吃蛇小游戏">贪吃蛇小游戏</a>
+							<p>简单的GUI实现小游戏,回顾知识,回味经典</p>
+						</dd>
+						<dd><span>4 </span>
+							<a href="/navigate/1/40" title="springMVC-07-文件上传">springMVC-07-文件上传</a>
+							<p>springMVC的文件上传,使用更加方便</p>
+						</dd>
+						<dd><span>5 </span>
+							<a href="/navigate/1/39" title="springMVC-06-自定义错误">springMVC-06-自定义错误</a>
+							<p>自定义什么时候出现错误并处理</p>
+						</dd>
+					</dl>
+				</div>
+				<div id="newsmid">
+					<ul>
+						<li>
+							<a href="###">
+								<img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/aa8b5d2b326275addba5f99ce9f9f1a820c7355d3d5b74f8cc883d5fb0f97d433963b2b47feec63024f252b32156b2a2?pictype=scale&from=30013&version=3.3.3.3&uin=1538933906&fname=u%3D3415617548%2C1216693599%26fm%3D26%26gp%3D0.jpg&size=750" style="width: 210px;height: 110px;top: 10px;" />
+								<span class="span1">redis-02-Hash类型</span>
+							</a>
+						</li>
+						<li>
+							<a href="###">
+								<img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/aa8b5d2b326275addba5f99ce9f9f1a820c7355d3d5b74f8cc883d5fb0f97d433963b2b47feec63024f252b32156b2a2?pictype=scale&from=30013&version=3.3.3.3&uin=1538933906&fname=u%3D3415617548%2C1216693599%26fm%3D26%26gp%3D0.jpg&size=750"
+								 style="width:210px;height:110px;bottom: 10px;">
+								<span class="span2">redis-01-String类型</span>
+							</a>
+						</li>
+					</ul>
+					<dl class="newslist1">
+						<dd><span>1 </span>
+							<a href="/navigate/3/42" title="Redis-02-Hash类型">&nbsp;Redis-02-Hash类型</a>
+							<p>将JSON等数据存入数据库,使用方便</p>
+						</dd>
+						<dd><span>2 </span>
+							<a href="/navigate/3/29" title="Redis-01-String类型">&nbsp;Redis-01-String类型</a>
+							<p>Redis是一个非关系型数据库,使用方便</p>
+						</dd>
+					</dl>
+				</div>
+				<div id="newslast">
+					<ul>
+						<li>
+							<a href="###">
+								<img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/08ab104322ff228c081c09d5ff88d0020ecb4c61a14e0d19a2ffe02e60c18599908bd8bfa4224eef45f8ea4ed2ccca37?pictype=scale&from=30013&version=3.3.3.3&uin=1538933906&fname=timg%281%29.jpg&size=750" style="width: 210px;height: 110px;top: 10px;" />
+								<span class="span1">网页抓取工具</span>
+							</a>
+						</li>
+					</ul>
+					<dl class="newslist2">
+						<dd><span>1 </span>
+							<a href="/navigate/3/42" title="网页抓取工具">&nbsp;网页抓取工具</a>
+							<p>可以抓取一个网站所有静态内容,通过简单的步骤安装后就可以使用</p>
+						</dd>
+					</dl>
+				</div>
+			</div>
+			<div id="zhuanti">
+				<h2 id="title">特别推荐
+				<span  class="hnav">
+					<a href="###" target="_blank">个人日记 /</a>
+					<a href="###" target="_blank">新知识💗 /</a>
+					<a href="###" target="_blank">学习感悟</a>
+				</span>
+				</h2>
+				<ul>
+					<li>
+						<a href="###" target="_blank"><img src="https://picabstract-preview-ftn.weiyun.com/ftn_pic_abs_v3/6d3a7479a9c816f64166932293e167e8ff53c9c0598c40be7aa2deb853ea436cce24a3e555dd444cd076a3f11bc2071c?pictype=scale&from=30013&version=3.3.3.3&uin=1538933906&fname=u%3D1531711675%2C3243572643%26fm%3D200%26gp%3D0.jpg&size=750"/> </a>
+					<b>我仍在初心等你归来</b>
+					<span>收藏太多的孤寂，身后深深浅浅的足迹，都装满故事，未曾想是你，带来偶遇的惊喜...</span>
+					<p href="###" target="_blank">+文章阅读</p>
+					</li>
+
+					<li>
+						<a href="###" target="_blank"><img src="https://dss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1713396441,1487163637&fm=26&gp=0.jpg" /> </a>
+					<b>平凡的一周</b>
+					<span>刘同说：“青春就是九个字：不要脸，讲了命，尽了兴”。或许...</span>
+					<p href="###" target="_blank">+文章阅读</p>
+					</li>
+
+					<li>
+						<a href="###" target="_blank"><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2462146637,4274174245&fm=26&gp=0.jpg" /> </a>
+					<b>承认吧，你是失败者</b>
+					<span>失败？对，承认。我是失败者，然后继续努力</span>
+					<p href="###" target="_blank">+文章阅读</p>
+					</li>
+
+					<li>
+						<a href="###" target="_blank"><img src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3922344982,423380743&fm=26&gp=0.jpg" /> </a>
+					<b>小感悟</b>
+					<span>我可以接受失败，但我不能接受放弃</span>
+					<p href="###" target="_blank">+文章阅读</p>
+					</li>
+
+					<li>
+						<a href="###" target="_blank"><img src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1618007397,4183425847&fm=26&gp=0.jpg"/> </a>
+					<b>世间美好与你环环相扣</b>
+					<span>不负时光，野蛮生长。看过人间无数烟火，仍想尽力去游历，去学习，做最好的自己。</span>
+					<p href="###" target="_blank">+文章阅读</p>
+					</li>
+
+					<li>
+						<a href="###" target="_blank"><img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2920180202,2202496813&fm=26&gp=0.jpg"/> </a>
+					<b>欢迎观看单身狗直播</b>
+					<span>无视骚里骚气的情侣，不吃狗粮!</span>
+					<p href="###" target="_blank">+文章阅读</p>
+					</li>
+				</ul>
+			</div>
+			<div id="new_bolg">
+				<h2 class="htitle">最新博文</h2>
+				<ul>
+					<li>
+						<h3 class="bolgtitle">
+							<a href="###" target="_blank">python的基本数据类型学习</a>
+						</h3>
+						<span>
+							<i>
+								<a href="###" target="_blank">个人日记</a>
+							</i>
+							<a class="ia" href="###" title="python的基本数据类型学习">
+								<img src="https://api.wj0511.com/static/upload/pic/20181030132223-2541746973037336.png" />
+							</a>
+						</span>
+						<p class="bolgtext">python的标准数据类型Python3 中有六个标准的数据类型</p>
+						<p class="bloginfo">
+							<span class="bolgtime">2020-04-17</span>
+							<span>
+								【<a href="###">个人日记</a>】
+							</span>
+						</p>
+						<a href="" class="viewmore">阅读更多</a>
+					</li>
+
+					<li>
+						<h3 class="bolgtitle">
+							<a href="###" target="_blank">python运算符</a>
+						</h3>
+						<span>
+							<i>
+								<a href="###" target="_blank">个人日记</a>
+							</i>
+							<a  class="ia" href="###" title="python运算符">
+								<img src="https://api.wj0511.com/static/upload/pic/20181030132223-2541746973037336.png" />
+							</a>
+						</span>
+						<p class="bolgtext">Python语言支持以下类型的运算符</p>
+						<p class="bloginfo">
+							<span class="bolgtime">2020-04-17</span>
+							<span>
+								【<a href="###">个人日记</a>】
+							</span>
+						</p>
+						<a href="" class="viewmore">阅读更多</a>
+					</li>
+
+					<li>
+						<h3 class="bolgtitle">
+							<a href="###" target="_blank">canvas的基本使用</a>
+						</h3>
+						<span>
+							<i>
+								<a href="###" target="_blank">新知识</a>
+							</i>
+							<a  class="ia" href="###" title="canvas的基本使用">
+								<img src="https://api.wj0511.com/static/upload/pic/20181030131837-47481065362295.jpg" />
+							</a>
+						</span>
+						<p class="bolgtext">这里我就来介绍canvas的简单用法</p>
+						<p class="bloginfo">
+							<span class="bolgtime">2020-04-16</span>
+							<span>
+								【<a href="###">新知识</a>】
+							</span>
+						</p>
+						<a href="" class="viewmore">阅读更多</a>
+					</li>
+
+					<li>
+						<h3 class="bolgtitle">
+							<a href="###" target="_blank">github的简单使用</a>
+						</h3>
+						<span>
+							<i>
+								<a href="###" target="_blank">推荐工具</a>
+							</i>
+							<a class="ia" href="###" title="github的简单使用">
+								<img src="https://api.wj0511.com/static/upload/pic/20190102115726-532548283131074.jpg" />
+							</a>
+						</span>
+						<p class="bolgtext">github是一个基于git的代码托管平台，付费用户可以建私人仓库，我们一般的免费用户只能使用公共仓库</p>
+						<p class="bloginfo">
+							<span class="bolgtime">2020-04-15</span>
+							<span>
+								【<a href="###">推荐工具</a>】
+							</span>
+						</p>
+						<a href="" class="viewmore">阅读更多</a>
+					</li>
+
+					<li>
+						<h3 class="bolgtitle">
+							<a href="###" target="_blank">80端口被占用解决</a>
+						</h3>
+						<span>
+							<i>
+								<a href="###" target="_blank">个人日记</a>
+							</i>
+							<a  class="ia" href="###" title="80端口被占用解决">
+								<img src="https://api.wj0511.com/static/upload/pic/20181030134309-5685291388780640.jpg" />
+							</a>
+						</span>
+						<p class="bolgtext">1：打开运行框输入cmd进入命令行2：输入netstat -ano  (可以看到PID为4的程序占用了80端口...
+</p>
+						<p class="bloginfo">
+							<span class="bolgtime">2020-04-14</span>
+							<span>
+								【<a href="###">个人日记</a>】
+							</span>
+						</p>
+						<a href="" class="viewmore">阅读更多</a>
+					</li>
+
+					<li>
+						<h3 class="bolgtitle">
+							<a href="###" target="_blank">django导出csv</a>
+						</h3>
+						<span>
+							<i>
+								<a href="###" target="_blank">个人日记</a>
+							</i>
+							<a  class="ia" href="###" title="django导出csv">
+								<img src="https://api.wj0511.com/static/upload/pic/20181030132139-7559374284354467.jpg" />
+							</a>
+						</span>
+						<p class="bolgtext">一：django导出csvfrom django.https import HttpRes...</p>
+						<p class="bloginfo">
+							<span class="bolgtime">2020-04-14</span>
+							<span>
+								【<a href="###">个人日记</a>】
+							</span>
+						</p>
+						<a href="" class="viewmore">阅读更多</a>
+					</li>
+				</ul>
+			</div>
+            <div id="pagination">
+					<ul id="pagination-flickr">
+						<li class="previous-off">&laquo;上一页</li>
+						<li class="active">1/10</li>
+						<li class='next'><a href="?page=8">下一页&raquo;</a></li>
+					</ul>
+				</div>
+		</div>
+		<iframe frameborder="no" border="0" width=150 margin='0' height=86 src="//music.163.com/outchain/player?type=2&id=25706282&auto=1&height=66" class="music" ></iframe>
+		<div id="footer">
+			<img class="pic1" src="/static/image/微信二维码.png" title="微信二维码"/>
+			<img class="pic2" src="/static/image/qq二维码.jpg" title="qq二维码" />
+			<span>站点声明</span>
+			<p class="p1">1、不放弃，不抛弃，笑到最后才美丽；梦遥远，零距离，只要我们肯努力。</p>
+			<p class="p2">2、版权开放，共享信息；若有略同，万分荣幸！！！</p>
+			<a class="p3">3、Copyright © 2020 落迁忆</a>
+		</div>
+	</body>
+</html>

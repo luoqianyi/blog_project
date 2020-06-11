@@ -1,0 +1,45 @@
+.post{
+	width: 800px;
+	position: relative;
+	top: -1190px;
+	right: -650px;
+	background-color: #b4d763;
+	border-radius: 10px;
+	
+}
+.entry-header{
+	height: 90px;	
+	border-bottom: #000000 1px solid;
+}
+.entry-title{
+	font-size: 42px;
+	font-weight: 400;
+	border-bottom: gray 1px solid;
+	color: #000000;
+	text-align: center;
+}
+.entry-meta{
+	padding-top: 15px;
+	font-size: 20px;
+}
+.entry-title,span,a,time{
+	font-family: "仿宋";
+	text-decoration: none;
+}
+.post-catagory{
+	margin-left: 160px;
+}
+.post-date{
+	margin-left: 200px;
+}
+.entry-content{
+	color: #000000;
+	font-size: 22px;
+	font-family: "黑体";
+}
+.blank{
+	width: 800px;
+	height: 30px;
+	position: relative;
+	bottom: 0px;
+}

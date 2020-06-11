@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block main_right %}
+    <article class="post post-1">
+			<header class="entry-header">
+				<h1 class="entry-title">{{ articles.title }}</h1>
+				<div class="entry-meta">
+				<span class="post-catagory">分类:<a href="#">{{ articles.category }}</a></span>
+				<span class="post-date">
+					<time class="entry-date" datetime="{{ articles.data_publish|date:"Y-m-d" }}">发布时间：{{ articles.data_publish}}</time>
+				</span>
+				</div>
+			</header>
+			<div class="entry-content" style="color: black">
+				{{ articles.content|safe }}
+			</div>
+			<div class="blank"></div>
+		</article>
+{% endblock %}
