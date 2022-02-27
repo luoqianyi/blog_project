@@ -1,3 +1,3 @@
 # blog_project
-博客系统
+我的django博客系统
 #说明
